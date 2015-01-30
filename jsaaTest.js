@@ -1,17 +1,3 @@
-test("square exists",function(){
-  ok(square,"square exists");
-});
-
-test("square is a function",function(){
-  ok(typeof square === 'function',"square is a function");
-});
-
-test("square returns",function(){
-  for(var i=0; i<12; i++){
-    equal(square(i),i*i,"Argument " +i+ " returned " +i);
-  }
-});
-
 ///// CoordTrans.js /////
 
 test("Degrees to radians",function(assert){
