@@ -12,8 +12,8 @@ Elliptical.planetCalculate = function( JD, object ){
 		L0 = Earth.eclipticLongitude(JD0);
 		B0 = Earth.eclipticLatitude(JD0);
 		R0 = Earth.radiusVector(JD0);		
-		L0 = coordTrans.degToRad(L0);
-		B0 = coordTrans.degToRad(B0);
+		L0 = CoordTrans.degToRad(L0);
+		B0 = CoordTrans.degToRad(B0);
 		cosB0 = Math.cos(B0);
 	}
 
@@ -185,8 +185,8 @@ Elliptical.planetCalculate = function( JD, object ){
 			var distance;
 			if (object !== 'SUN')
 			{
-				var Lrad = coordTrans.degToRad(L);
-				var Brad = coordTrans.degToRad(B);
+				var Lrad = CoordTrans.degToRad(L);
+				var Brad = CoordTrans.degToRad(B);
 				var cosB = Math.cos(Brad);
 				var cosL = Math.cos(Lrad);
 				var x = R * cosB * cosL - R0 * cosB0 * Math.cos(L0);
@@ -202,8 +202,8 @@ Elliptical.planetCalculate = function( JD, object ){
 		}
   	}
 
-	var Lrad = coordTrans.degToRad(L);
-	var Brad = coordTrans.degToRad(B);
+	var Lrad = CoordTrans.degToRad(L);
+	var Brad = CoordTrans.degToRad(B);
 	var cosB = Math.cos(Brad);
 	var cosL = Math.cos(Lrad);
 	var x = R * cosB * cosL - R0 * cosB0 * Math.cos(L0);
@@ -214,9 +214,9 @@ Elliptical.planetCalculate = function( JD, object ){
 
 	var details = {};
 
-	details.ApparentGeocentricLatitude = coordTrans.radToDeg(Math.atan2(z, Math.sqrt(x2 + y2)));
+	details.ApparentGeocentricLatitude = CoordTrans.radToDeg(Math.atan2(z, Math.sqrt(x2 + y2)));
 	details.ApparentGeocentricDistance = Math.sqrt(x2 + y2 + z*z);
-	details.ApparentGeocentricLongitude = coordTrans.mapTo0To360Range(coordTrans.radToDeg(Math.atan2(y, x)));
+	details.ApparentGeocentricLongitude = CoordTrans.mapTo0To360Range(CoordTrans.radToDeg(Math.atan2(y, x)));
 	details.ApparentLightTime = this.distanceToLightTime(details.ApparentGeocentricDistance);
 
 	//Adjust for Aberration
@@ -232,10 +232,10 @@ Elliptical.planetCalculate = function( JD, object ){
 	//Correct for nutation
 	var NutationInLongitude = Nutation.nutationInLongitude(JD);
 	var Epsilon = Nutation.trueObliquityOfEcliptic(JD);
-	details.ApparentGeocentricLongitude += coordTrans.DMSToDegrees(0, 0, NutationInLongitude);
+	details.ApparentGeocentricLongitude += CoordTrans.DMSToDegrees(0, 0, NutationInLongitude);
 
 	//Convert to RA and Dec
-	var ApparentEqu = coordTrans.ecliptic2Equatorial(details.ApparentGeocentricLongitude, details.ApparentGeocentricLatitude, Epsilon);
+	var ApparentEqu = CoordTrans.ecliptic2Equatorial(details.ApparentGeocentricLongitude, details.ApparentGeocentricLatitude, Epsilon);
 	details.ApparentGeocentricRA = ApparentEqu.X;
 	details.ApparentGeocentricDeclination = ApparentEqu.Y;
 

@@ -633,7 +633,7 @@ Jupiter.eclipticLongitude = function(JD) {
 	var value = (L0 + L1*rho + L2*rhosquared + L3*rhocubed + L4*rho4 + L5*rho5) / 100000000;
 
 	//convert results back to degrees
-	value = coordTrans.mapTo0To360Range(coordTrans.radToDeg(value));
+	value = CoordTrans.mapTo0To360Range(CoordTrans.radToDeg(value));
 	return value;
 },
 
@@ -692,7 +692,7 @@ Jupiter.eclipticLatitude = function(JD) {
 	var value = (B0 + B1*rho + B2*rhosquared + B3*rhocubed + B4*rho4 + B5*rho5) / 100000000;
 
 	//convert results back to degrees
-	value = coordTrans.radToDeg(value);
+	value = CoordTrans.radToDeg(value);
 	return value;
 },
 

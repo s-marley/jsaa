@@ -1,7 +1,7 @@
 function Sun () {}
 
 Sun.geometricEclipticLongitudeJ2000 = function(JD){
-	return coordTrans.mapTo0To360Range((Earth.eclipticLongitudeJ2000(JD) + 180));
+	return CoordTrans.mapTo0To360Range((Earth.eclipticLongitudeJ2000(JD) + 180));
 }
 
 Sun.geometricEclipticLatitudeJ2000 = function(JD){
@@ -10,9 +10,9 @@ Sun.geometricEclipticLatitudeJ2000 = function(JD){
 
 Sun.eclipticRectangularCoordinatesJ2000 = function(JD){
 	var longitude = this.geometricEclipticLongitudeJ2000(JD);
-	longitude = coordTrans.degToRad(longitude);
+	longitude = CoordTrans.degToRad(longitude);
 	var latitude = this.geometricEclipticLatitudeJ2000(JD);
-	latitude = coordTrans.degToRad(latitude);
+	latitude = CoordTrans.degToRad(latitude);
 	var R = Earth.radiusVector(JD);
 	
 	var value = new Coord3D();
@@ -26,7 +26,7 @@ Sun.eclipticRectangularCoordinatesJ2000 = function(JD){
 
 Sun.geometricEclipticLongitude = function(JD)
 {
-  return coordTrans.mapTo0To360Range(Earth.eclipticLongitude(JD) + 180);
+  return CoordTrans.mapTo0To360Range(Earth.eclipticLongitude(JD) + 180);
 }
 
 Sun.geometricEclipticLatitude = function(JD)

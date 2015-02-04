@@ -83,19 +83,19 @@ Nutation.nutationInLongitude = function(JD)
 	var Tcubed = Tsquared*T;
 
 	var D = 297.85036 + 445267.111480*T - 0.0019142*Tsquared + Tcubed / 189474;
-	D = coordTrans.mapTo0To360Range(D);
+	D = CoordTrans.mapTo0To360Range(D);
 
 	var M = 357.52772 + 35999.050340*T - 0.0001603*Tsquared - Tcubed / 300000;
-	M = coordTrans.mapTo0To360Range(M);
+	M = CoordTrans.mapTo0To360Range(M);
 
 	var Mprime = 134.96298 + 477198.867398*T + 0.0086972*Tsquared + Tcubed / 56250;
-	Mprime = coordTrans.mapTo0To360Range(Mprime);
+	Mprime = CoordTrans.mapTo0To360Range(Mprime);
 
 	var F = 93.27191 + 483202.017538*T - 0.0036825*Tsquared + Tcubed / 327270;
-	F = coordTrans.mapTo0To360Range(F);
+	F = CoordTrans.mapTo0To360Range(F);
 
 	var omega = 125.04452 - 1934.136261*T + 0.0020708*Tsquared + Tcubed / 450000;
-	omega = coordTrans.mapTo0To360Range(omega);
+	omega = CoordTrans.mapTo0To360Range(omega);
 
 	var nCoefficients = NutationCoefficients.length;
 	var value = 0;
@@ -104,7 +104,7 @@ Nutation.nutationInLongitude = function(JD)
 		var argument = NutationCoefficients[i].D * D + NutationCoefficients[i].M * M + 
 		                  NutationCoefficients[i].Mprime * Mprime + NutationCoefficients[i].F * F + 
 		                  NutationCoefficients[i].omega * omega;
-		var radargument = coordTrans.degToRad(argument);
+		var radargument = CoordTrans.degToRad(argument);
 		value += (NutationCoefficients[i].sincoeff1 + NutationCoefficients[i].sincoeff2 * T) * Math.sin(radargument) * 0.0001; 
 	}
 
@@ -121,19 +121,19 @@ Nutation.nutationInObliquity = function(JD)
 	var Tcubed = Tsquared*T;
 
 	var D = 297.85036 + 445267.111480*T - 0.0019142*Tsquared + Tcubed / 189474;
-	D = coordTrans.mapTo0To360Range(D);
+	D = CoordTrans.mapTo0To360Range(D);
 
 	var M = 357.52772 + 35999.050340*T - 0.0001603*Tsquared - Tcubed / 300000;
-	M = coordTrans.mapTo0To360Range(M);
+	M = CoordTrans.mapTo0To360Range(M);
 
 	var Mprime = 134.96298 + 477198.867398*T + 0.0086972*Tsquared + Tcubed / 56250;
-	Mprime = coordTrans.mapTo0To360Range(Mprime);
+	Mprime = CoordTrans.mapTo0To360Range(Mprime);
 
 	var F = 93.27191 + 483202.017538*T - 0.0036825*Tsquared + Tcubed / 327270;
-	F = coordTrans.mapTo0To360Range(F);
+	F = CoordTrans.mapTo0To360Range(F);
 
 	var omega = 125.04452 - 1934.136261*T + 0.0020708*Tsquared + Tcubed / 450000;
-	omega = coordTrans.mapTo0To360Range(omega);
+	omega = CoordTrans.mapTo0To360Range(omega);
 
 	var nCoefficients = NutationCoefficients.length;
 	var value = 0;
@@ -142,7 +142,7 @@ Nutation.nutationInObliquity = function(JD)
 		var argument = NutationCoefficients[i].D * D + NutationCoefficients[i].M * M + 
 		                  NutationCoefficients[i].Mprime * Mprime + NutationCoefficients[i].F * F + 
 		                  NutationCoefficients[i].omega * omega;
-		var radargument = coordTrans.degToRad(argument);
+		var radargument = CoordTrans.degToRad(argument);
 		value += (NutationCoefficients[i].coscoeff1 + NutationCoefficients[i].coscoeff2 * T) * Math.cos(radargument) * 0.0001; 
 	}
 
@@ -163,29 +163,29 @@ Nutation.meanObliquityOfEcliptic = function(JD)
 	var U10 = U9*U;
 
 
-	return coordTrans.DMSToDegrees(23, 26, 21.448) - coordTrans.DMSToDegrees(0, 0, 4680.93) * U
-	                                                               - coordTrans.DMSToDegrees(0, 0, 1.55) * Usquared
-	                                                               + coordTrans.DMSToDegrees(0, 0, 1999.25) * Ucubed
-	                                                               - coordTrans.DMSToDegrees(0, 0, 51.38) * U4
-	                                                               - coordTrans.DMSToDegrees(0, 0, 249.67) * U5
-	                                                               - coordTrans.DMSToDegrees(0, 0, 39.05) * U6 
-	                                                               + coordTrans.DMSToDegrees(0, 0, 7.12) * U7
-	                                                               + coordTrans.DMSToDegrees(0, 0, 27.87) * U8
-	                                                               + coordTrans.DMSToDegrees(0, 0, 5.79) * U9
-	                                                               + coordTrans.DMSToDegrees(0, 0, 2.45) * U10;
+	return CoordTrans.DMSToDegrees(23, 26, 21.448) - CoordTrans.DMSToDegrees(0, 0, 4680.93) * U
+	                                                               - CoordTrans.DMSToDegrees(0, 0, 1.55) * Usquared
+	                                                               + CoordTrans.DMSToDegrees(0, 0, 1999.25) * Ucubed
+	                                                               - CoordTrans.DMSToDegrees(0, 0, 51.38) * U4
+	                                                               - CoordTrans.DMSToDegrees(0, 0, 249.67) * U5
+	                                                               - CoordTrans.DMSToDegrees(0, 0, 39.05) * U6 
+	                                                               + CoordTrans.DMSToDegrees(0, 0, 7.12) * U7
+	                                                               + CoordTrans.DMSToDegrees(0, 0, 27.87) * U8
+	                                                               + CoordTrans.DMSToDegrees(0, 0, 5.79) * U9
+	                                                               + CoordTrans.DMSToDegrees(0, 0, 2.45) * U10;
 }
 
 Nutation.trueObliquityOfEcliptic = function(JD)
 {
-	return this.meanObliquityOfEcliptic(JD) + coordTrans.DMSToDegrees(0, 0, this.nutationInObliquity(JD));
+	return this.meanObliquityOfEcliptic(JD) + CoordTrans.DMSToDegrees(0, 0, this.nutationInObliquity(JD));
 }
 
 Nutation.nutationInRightAscension = function(Alpha, Delta, Obliquity, NutationInLongitude, NutationInObliquity)
 {
 	//Convert to radians
-	Alpha = coordTrans.hoursToRadians(Alpha);
-	Delta = coordTrans.degToRad(Delta);
-	Obliquity = coordTrans.degToRad(Obliquity);
+	Alpha = CoordTrans.hoursToRadians(Alpha);
+	Delta = CoordTrans.degToRad(Delta);
+	Obliquity = CoordTrans.degToRad(Obliquity);
 
 	return (Math.cos(Obliquity) + Math.sin(Obliquity) * Math.sin(Alpha) * Math.tan(Delta)) * NutationInLongitude - Math.cos(Alpha)*Math.tan(Delta)*NutationInObliquity; 
 }
@@ -193,8 +193,8 @@ Nutation.nutationInRightAscension = function(Alpha, Delta, Obliquity, NutationIn
 Nutation.nutationInDeclination = function(Alpha, Obliquity, NutationInLongitude, NutationInObliquity)
 {
 	//Convert to radians
-	Alpha = coordTrans.hoursToRadians(Alpha);
-	Obliquity = coordTrans.degToRad(Obliquity);
+	Alpha = CoordTrans.hoursToRadians(Alpha);
+	Obliquity = CoordTrans.degToRad(Obliquity);
 
 	return Math.sin(Obliquity) * Math.cos(Alpha) * NutationInLongitude + Math.sin(Alpha)*NutationInObliquity; 
 }

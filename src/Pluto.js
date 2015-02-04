@@ -215,13 +215,13 @@ Pluto.eclipticLongitude = function(JD){
 	for (var i=0; i<numCoefficients; i++)
 	{
 		var alpha = argumentCoefficients[i].J * J + argumentCoefficients[i].S * S + argumentCoefficients[i].P * P;
-		alpha = coordTrans.degToRad(alpha);
+		alpha = CoordTrans.degToRad(alpha);
 		L += ((longitudeCoefficients[i].A * Math.sin(alpha)) + (longitudeCoefficients[i].B * Math.cos(alpha)));
 	}
 
 	L = L / 1000000;
 	L += (238.958116 + 144.96*T);
-	L = coordTrans.mapTo0To360Range(L);
+	L = CoordTrans.mapTo0To360Range(L);
 
 	return L;
 },
@@ -242,7 +242,7 @@ Pluto.eclipticLatitude = function(JD){
 	for (var i=0; i<numCoefficients; i++)
 	{
 		var alpha = argumentCoefficients[i].J * J + argumentCoefficients[i].S * S + argumentCoefficients[i].P * P;
-		alpha = coordTrans.degToRad(alpha);
+		alpha = CoordTrans.degToRad(alpha);
 		B += ((latitudeCoefficients[i].A * Math.sin(alpha)) + (latitudeCoefficients[i].B * Math.cos(alpha)));
 	}
 	B = B / 1000000;
@@ -268,7 +268,7 @@ Pluto.radiusVector = function(JD){
 	for (var i=0; i<numCoefficients; i++)
 	{
 		var alpha = argumentCoefficients[i].J * J + argumentCoefficients[i].S * S + argumentCoefficients[i].P * P;
-		alpha = coordTrans.degToRad(alpha);
+		alpha = CoordTrans.degToRad(alpha);
 		R += ((radiusCoefficients[i].A * Math.sin(alpha)) + (radiusCoefficients[i].B * Math.cos(alpha)));
 	}
 	R = R / 10000000;

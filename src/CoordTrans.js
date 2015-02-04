@@ -1,14 +1,14 @@
-function coordTrans() {};
+function CoordTrans() {};
 	
-coordTrans.degToRad = function(degrees){
+CoordTrans.degToRad = function(degrees){
 	return degrees * 0.017453292519943295769236907684886;
 }
 
-coordTrans.radToDeg = function(radians){
+CoordTrans.radToDeg = function(radians){
 	return radians * 57.295779513082320876798154814105;
 }
 
-coordTrans.mapTo0To360Range = function(degrees)
+CoordTrans.mapTo0To360Range = function(degrees)
   	{
 	    var value = degrees;
 	    while (value < 0) {
@@ -20,7 +20,7 @@ coordTrans.mapTo0To360Range = function(degrees)
 	return value;
 }
 
-coordTrans.ecliptic2Equatorial = function(Lambda, Beta, Epsilon)
+CoordTrans.ecliptic2Equatorial = function(Lambda, Beta, Epsilon)
 {
   Lambda = this.degToRad(Lambda);
   Beta = this.degToRad(Beta);
@@ -35,17 +35,17 @@ coordTrans.ecliptic2Equatorial = function(Lambda, Beta, Epsilon)
   return Equatorial;
 }
 
-coordTrans.radiansToHours = function(Radians)
+CoordTrans.radiansToHours = function(Radians)
 {
 	return Radians * 3.8197186342054880584532103209403;
 }
 
-coordTrans.hoursToRadians = function(Hours)
+CoordTrans.hoursToRadians = function(Hours)
 {
   return Hours * 0.26179938779914943653855361527329;
 }
 
-coordTrans.DMSToDegrees = function(Degrees, Minutes, Seconds, bPositive)
+CoordTrans.DMSToDegrees = function(Degrees, Minutes, Seconds, bPositive)
 {
   bPositive = (typeof x === 'undefined') ? true : x;
 

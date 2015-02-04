@@ -91,8 +91,8 @@ Aberration.earthVelocity = function(JD)
 Aberration.equatorialAberration = function(Alpha, Delta, JD)
 {
 	//Convert to radians
-	Alpha = coordTrans.degToRad(Alpha*15);
-	Delta = coordTrans.degToRad(Delta);
+	Alpha = CoordTrans.degToRad(Alpha*15);
+	Delta = CoordTrans.degToRad(Delta);
 
 	var cosAlpha = Math.cos(Alpha);
 	var sinAlpha = Math.sin(Alpha);
@@ -103,8 +103,8 @@ Aberration.equatorialAberration = function(Alpha, Delta, JD)
 
 	//What is the return value
 	var aberration = new Coord2D();
-	aberration.X = coordTrans.radiansToHours((velocity.Y * cosAlpha - velocity.X * sinAlpha) / ( 17314463350.0 * cosDelta));
-	aberration.Y = coordTrans.radToDeg(- (((velocity.X * cosAlpha + velocity.Y * sinAlpha) * sinDelta - velocity.Z * cosDelta) / 17314463350.0));
+	aberration.X = CoordTrans.radiansToHours((velocity.Y * cosAlpha - velocity.X * sinAlpha) / ( 17314463350.0 * cosDelta));
+	aberration.Y = CoordTrans.radToDeg(- (((velocity.X * cosAlpha + velocity.Y * sinAlpha) * sinDelta - velocity.Z * cosDelta) / 17314463350.0));
 
 	return aberration;
 }
@@ -120,10 +120,10 @@ Aberration.eclipticAberration = function(Lambda, Beta, JD)
 	var SunLongitude = Sun.geometricEclipticLongitude(JD);
 
 	//Convert to radians
-	pi = coordTrans.degToRad(pi);
-	Lambda = coordTrans.degToRad(Lambda);
-	Beta = coordTrans.degToRad(Beta);
-	SunLongitude = coordTrans.degToRad(SunLongitude);
+	pi = CoordTrans.degToRad(pi);
+	Lambda = CoordTrans.degToRad(Lambda);
+	Beta = CoordTrans.degToRad(Beta);
+	SunLongitude = CoordTrans.degToRad(SunLongitude);
 	var aberration = new Coord2D();
 	aberration.X = (-k*Math.cos(SunLongitude - Lambda) + e*k*Math.cos(pi - Lambda)) / Math.cos(Beta) / 3600;
 	aberration.Y = -k*Math.sin(Beta)*(Math.sin(SunLongitude - Lambda) - e*Math.sin(pi - Lambda)) / 3600;
