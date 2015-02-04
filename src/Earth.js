@@ -1,5 +1,8 @@
 function Earth() {
-	this.L0EarthCoefficients = [
+
+	var staticFunctions = {};
+
+	var L0EarthCoefficients = [
 		{ A: 175347046, B: 0, C: 0 },
 		{ A: 3341656, B: 4.6692568, C: 6283.07585 },
 		{ A: 34894, B: 4.62610, C: 12566.1517 },
@@ -66,7 +69,7 @@ function Earth() {
 		{ A: 25, B: 3.16, C: 4690.48 }
 	];
 
-	this.L1EarthCoefficients = [
+	var L1EarthCoefficients = [
 		{ A: 628331966747.0, B: 0, C: 0 },
 		{ A: 206059, B: 2.678235, C: 6283.07585 },
 		{ A: 4303, B: 2.6351, C: 12566.1517 },
@@ -103,7 +106,7 @@ function Earth() {
 		{ A: 6, B: 4.67, C: 4690.48 }
 	];
 
-	this.L2EarthCoefficients = [
+	var L2EarthCoefficients = [
 		{ A: 52919, B: 0, C: 0 },
 		{ A: 8720, B: 1.0721, C: 6283.0758 },
 		{ A: 309, B: 0.867, C: 12566.152 },
@@ -126,7 +129,7 @@ function Earth() {
 		{ A: 2, B: 3.75, C: 0.98 }
 	];
 
-	this.L3EarthCoefficients = [
+	var L3EarthCoefficients = [
 		{ A: 289, B: 5.844, C: 6283.076 },
 		{ A: 35, B: 0, C: 0 },
 		{ A: 17, B: 5.49, C: 12566.15 },
@@ -136,17 +139,17 @@ function Earth() {
 		{ A: 1, B: 5.97, C: 242.73 }
 	];
 
-	this.L4EarthCoefficients = [
+	var L4EarthCoefficients = [
 		{ A: 114, B: 3.142, C: 0 },
 		{ A: 8, B: 4.13, C: 6283.08 },
 		{ A: 1, B: 3.84, C: 12566.15 }
 	];
 
-	this.L5EarthCoefficients = [
+	var L5EarthCoefficients = [
 		{ A: 1, B: 3.14, C: 0 },
 	];
 
-	this.B0EarthCoefficients = [
+	var B0EarthCoefficients = [
 		{ A: 280, B: 3.199, C: 84334.662 },
 		{ A: 102, B: 5.422, C: 5507.553 },
 		{ A: 80, B: 3.88, C: 5223.69}, 
@@ -154,12 +157,12 @@ function Earth() {
 		{ A: 32, B: 4.00, C: 1577.34 }
 	];
 
-	this.B1EarthCoefficients = [
+	var B1EarthCoefficients = [
 		{ A: 9, B: 3.90, C: 5507.55 },
 		{ A: 6, B: 1.73, C: 5223.69} 
 	];
 
-	this.R0EarthCoefficients = [
+	var R0EarthCoefficients = [
 		{ A: 100013989, B: 0, C: 0 },
 		{ A: 1670700, B: 3.0984635, C: 6283.07585 },
 		{ A: 13956, B: 3.05525, C: 12566.1517 },
@@ -202,7 +205,7 @@ function Earth() {
 		{ A: 26, B: 4.59, C: 10447.39 }
 	];
 
-	this.R1EarthCoefficients = [
+	var R1EarthCoefficients = [
 		{ A: 103019, B: 1.107490, C: 6283.07585 },
 		{ A: 1721, B: 1.0644, C: 12566.1517 },
 		{ A: 702, B: 3.142, C: 0 },
@@ -215,7 +218,7 @@ function Earth() {
 		{ A: 9, B: 0.27, C: 5486.78 }
 	];
 
-	this.R2EarthCoefficients = [
+	var R2EarthCoefficients = [
 		{ A: 4359, B: 5.7846, C: 6283.0758 },
 		{ A: 124, B: 5.579, C: 12566.152 },
 		{ A: 12, B: 3.14, C: 0 },
@@ -224,16 +227,16 @@ function Earth() {
 		{ A: 3, B: 5.47, C: 18849.23 }
 	];
 
-	this.R3EarthCoefficients = [
+	var R3EarthCoefficients = [
 		{ A: 145, B: 4.273, C: 6283.076 },
 		{ A: 7, B: 3.92, C: 12566.15 }
 	];
 
-	this.R4EarthCoefficients = [
+	var R4EarthCoefficients = [
 		{ A: 4, B: 2.56, C: 6283.08 }
 	];
 
-	this.L1EarthCoefficientsJ2000 = [
+	var L1EarthCoefficientsJ2000 = [
 		{ A: 628307584999.0, B: 0, C: 0 },
 		{ A: 206059, B: 2.678235, C: 6283.07585 },
 		{ A: 4303, B: 2.6351, C: 12566.1517 },
@@ -270,7 +273,7 @@ function Earth() {
 		{ A: 6, B: 4.67, C: 4690.48 }
 	];
 
-	this.L2EarthCoefficientsJ2000 = [
+	var L2EarthCoefficientsJ2000 = [
 		{ A: 8722, B: 1.0725, C: 6283.0758 },
 		{ A: 991, B: 3.1416, C: 0 },
 		{ A: 295, B: 0.437, C: 12566.152 },
@@ -293,7 +296,7 @@ function Earth() {
 		{ A: 2, B: 3.75, C: 0.98 }
 	];
 
-	this.L3EarthCoefficientsJ2000 = [
+	var L3EarthCoefficientsJ2000 = [
 		{ A: 289, B: 5.842, C: 6283.076 },
 		{ A: 21, B: 6.05, C: 12566.15 },
 		{ A: 3, B: 5.20, C: 155.42 },
@@ -303,12 +306,12 @@ function Earth() {
 		{ A: 1, B: 5.54, C: 18849.23 }
 	];
 
-	this.L4EarthCoefficientsJ2000 = [
+	var L4EarthCoefficientsJ2000 = [
 		{ A: 8, B: 4.14, C: 6283.08 },
 		{ A: 1, B: 3.28, C: 12566.15 }
 	];
 
-	this.B1EarthCoefficientsJ2000 = [
+	var B1EarthCoefficientsJ2000 = [
 		{ A: 227778, B: 3.413766, C: 6283.07585 },
 		{ A: 3806, B: 3.3706, C: 12566.1517 },
 		{ A: 3620, B: 0, C: 0 },
@@ -318,155 +321,288 @@ function Earth() {
 		{ A: 6, B: 5.20, C: 2352.87 }
 	];
 
-	this.B2EarthCoefficientsJ2000 = [
+	var B2EarthCoefficientsJ2000 = [
 		{ A: 9721, B: 5.1519, C: 6283.07585 },
 		{ A: 233, B: 3.1416, C: 0 },
 		{ A: 134, B: 0.644, C: 12566.152 },
 		{ A: 7, B: 1.07, C: 18849.23 }
 	];
 
-	this.B3EarthCoefficientsJ2000 = [
+	var B3EarthCoefficientsJ2000 = [
 		{ A: 276, B: 0.595, C: 6283.076 },
 		{ A: 17, B: 3.14, C: 0 },
 		{ A: 4, B: 0.12, C: 12566.15 }
 	];
 
-	this.B4EarthCoefficientsJ2000 = [
+	var B4EarthCoefficientsJ2000 = [
 		{ A: 6, B: 2.27, C: 6283.08 },
 		{ A: 1, B: 0, C: 0 }
 	];
 
+	staticFunctions.L0EarthCoefficients = function () { return L0EarthCoefficients; };
+	staticFunctions.L1EarthCoefficients = function () { return L1EarthCoefficients; };
+	staticFunctions.L2EarthCoefficients = function () { return L2EarthCoefficients;	};
+	staticFunctions.L3EarthCoefficients = function () {	return L3EarthCoefficients; };
+	staticFunctions.L4EarthCoefficients = function () {	return L4EarthCoefficients;	};
+	staticFunctions.L5EarthCoefficients = function () {	return L5EarthCoefficients;	};
+
+	staticFunctions.B0EarthCoefficients = function () { return B0EarthCoefficients; };
+	staticFunctions.B1EarthCoefficients = function () { return B1EarthCoefficients; };
+
+	staticFunctions.R0EarthCoefficients = function () { return R0EarthCoefficients; };
+	staticFunctions.R1EarthCoefficients = function () { return R1EarthCoefficients; };
+	staticFunctions.R2EarthCoefficients = function () { return R2EarthCoefficients;	};
+	staticFunctions.R3EarthCoefficients = function () {	return R3EarthCoefficients; };
+	staticFunctions.R4EarthCoefficients = function () {	return R4EarthCoefficients; };
+
+	staticFunctions.L1EarthCoefficientsJ2000 = function () { return L1EarthCoefficientsJ2000; };
+	staticFunctions.L2EarthCoefficientsJ2000 = function () { return L2EarthCoefficientsJ2000; };
+	staticFunctions.L3EarthCoefficientsJ2000 = function () { return L3EarthCoefficientsJ2000; };
+	staticFunctions.L4EarthCoefficientsJ2000 = function () { return L4EarthCoefficientsJ2000; };
+
+	staticFunctions.B1EarthCoefficientsJ2000 = function () { return B1EarthCoefficientsJ2000; };
+	staticFunctions.B2EarthCoefficientsJ2000 = function () { return B2EarthCoefficientsJ2000; };
+	staticFunctions.B3EarthCoefficientsJ2000 = function () { return B3EarthCoefficientsJ2000; };
+	staticFunctions.B4EarthCoefficientsJ2000 = function () { return B4EarthCoefficientsJ2000; };
+
+
+	return staticFunctions;
 }
 
-Earth.prototype = {
+Earth.eclipticLongitudeJ2000 = function(JD){
 
-	constructor: Earth,
+	var e = new Earth;
+	var L0EarthCoefficients = e.L0EarthCoefficients();
+	var L1EarthCoefficientsJ2000 = e.L1EarthCoefficientsJ2000();
+	var L2EarthCoefficientsJ2000 = e.L2EarthCoefficientsJ2000();
+	var L3EarthCoefficientsJ2000 = e.L3EarthCoefficientsJ2000();
+	var L4EarthCoefficientsJ2000 = e.L4EarthCoefficientsJ2000();
 
-	eclipticLongitudeJ2000: function(JD){
-		var rho = (JD - 2451545) / 365250;
-		var rhosquared = rho*rho;
-		var rhocubed = rhosquared*rho;
-		var rho4 = rhocubed*rho;
+	var rho = (JD - 2451545) / 365250;
+	var rhosquared = rho*rho;
+	var rhocubed = rhosquared*rho;
+	var rho4 = rhocubed*rho;
 
-		//Calculate L0
-		var nL0Coefficients = this.L0EarthCoefficients.length;
-		var L0 = 0;
-		var i;
-		for (i=0; i<nL0Coefficients; i++)
-		L0 += this.L0EarthCoefficients[i].A * Math.cos(this.L0EarthCoefficients[i].B + this.L0EarthCoefficients[i].C*rho);
+	//Calculate L0
+	var nL0Coefficients = L0EarthCoefficients.length;
+	var L0 = 0;
+	var i;
+	for (i=0; i<nL0Coefficients; i++)
+	L0 += L0EarthCoefficients[i].A * Math.cos(L0EarthCoefficients[i].B + L0EarthCoefficients[i].C*rho);
 
-		//Calculate L1
-		var nL1Coefficients = this.L1EarthCoefficientsJ2000.length
-		var L1 = 0;
-		for (i=0; i<nL1Coefficients; i++)
-		L1 += this.L1EarthCoefficientsJ2000[i].A * Math.cos(this.L1EarthCoefficientsJ2000[i].B + this.L1EarthCoefficientsJ2000[i].C*rho);
+	//Calculate L1
+	var nL1Coefficients = L1EarthCoefficientsJ2000.length
+	var L1 = 0;
+	for (i=0; i<nL1Coefficients; i++)
+	L1 += L1EarthCoefficientsJ2000[i].A * Math.cos(L1EarthCoefficientsJ2000[i].B + L1EarthCoefficientsJ2000[i].C*rho);
 
-		//Calculate L2
-		var nL2Coefficients = this.L2EarthCoefficientsJ2000.length;
-		var L2 = 0;
-		for (i=0; i<nL2Coefficients; i++)
-		L2 += this.L2EarthCoefficientsJ2000[i].A * Math.cos(this.L2EarthCoefficientsJ2000[i].B + this.L2EarthCoefficientsJ2000[i].C*rho);
+	//Calculate L2
+	var nL2Coefficients = L2EarthCoefficientsJ2000.length;
+	var L2 = 0;
+	for (i=0; i<nL2Coefficients; i++)
+	L2 += L2EarthCoefficientsJ2000[i].A * Math.cos(L2EarthCoefficientsJ2000[i].B + L2EarthCoefficientsJ2000[i].C*rho);
 
-		//Calculate L3
-		var nL3Coefficients = this.L3EarthCoefficientsJ2000.length;
-		var L3 = 0;
-		for (i=0; i<nL3Coefficients; i++)
-		L3 += this.L3EarthCoefficientsJ2000[i].A * Math.cos(this.L3EarthCoefficientsJ2000[i].B + this.L3EarthCoefficientsJ2000[i].C*rho);
+	//Calculate L3
+	var nL3Coefficients = L3EarthCoefficientsJ2000.length;
+	var L3 = 0;
+	for (i=0; i<nL3Coefficients; i++)
+	L3 += L3EarthCoefficientsJ2000[i].A * Math.cos(L3EarthCoefficientsJ2000[i].B + L3EarthCoefficientsJ2000[i].C*rho);
 
-		//Calculate L4
-		var nL4Coefficients = this.L4EarthCoefficientsJ2000.length;
-		var L4 = 0;
-		for (i=0; i<nL4Coefficients; i++)
-		L4 += this.L4EarthCoefficientsJ2000[i].A * Math.cos(this.L4EarthCoefficientsJ2000[i].B + this.L4EarthCoefficientsJ2000[i].C*rho);
+	//Calculate L4
+	var nL4Coefficients = L4EarthCoefficientsJ2000.length;
+	var L4 = 0;
+	for (i=0; i<nL4Coefficients; i++)
+	L4 += L4EarthCoefficientsJ2000[i].A * Math.cos(L4EarthCoefficientsJ2000[i].B + L4EarthCoefficientsJ2000[i].C*rho);
 
-		var value = (L0 + L1*rho + L2*rhosquared + L3*rhocubed + L4*rho4) / 100000000;
+	var value = (L0 + L1*rho + L2*rhosquared + L3*rhocubed + L4*rho4) / 100000000;
 
-		//convert results back to degrees
-		value = coordTrans.mapTo0To360Range(coordTrans.radToDeg(value));
-		return value;
-	},
+	//convert results back to degrees
+	value = coordTrans.mapTo0To360Range(coordTrans.radToDeg(value));
+	return value;
+}
 
-	eclipticLatitudeJ2000: function(JD){
-		var rho = (JD - 2451545) / 365250;
-		var rhosquared = rho*rho;
-		var rhocubed = rhosquared*rho;
-		var rho4 = rhocubed*rho;
+Earth.eclipticLatitudeJ2000 = function(JD){
+	var e = new Earth;
+	var B0EarthCoefficients = e.B0EarthCoefficients();
+	var B1EarthCoefficientsJ2000 = e.B1EarthCoefficientsJ2000();
+	var B2EarthCoefficientsJ2000 = e.B2EarthCoefficientsJ2000();
+	var B3EarthCoefficientsJ2000 = e.B3EarthCoefficientsJ2000();
+	var B4EarthCoefficientsJ2000 = e.B4EarthCoefficientsJ2000();
 
-		//Calculate B0
-		var nB0Coefficients = this.B0EarthCoefficients.length;
-		var B0 = 0;
-		var i;
-		for (i=0; i<nB0Coefficients; i++)
-		B0 += this.B0EarthCoefficients[i].A * Math.cos(this.B0EarthCoefficients[i].B + this.B0EarthCoefficients[i].C*rho);
+	var rho = (JD - 2451545) / 365250;
+	var rhosquared = rho*rho;
+	var rhocubed = rhosquared*rho;
+	var rho4 = rhocubed*rho;
 
-		//Calculate B1
-		var nB1Coefficients = this.B1EarthCoefficientsJ2000.length;
-		var B1 = 0;
-		for (i=0; i<nB1Coefficients; i++)
-		B1 += this.B1EarthCoefficientsJ2000[i].A * Math.cos(this.B1EarthCoefficientsJ2000[i].B + this.B1EarthCoefficientsJ2000[i].C*rho);
+	//Calculate B0
+	var nB0Coefficients = B0EarthCoefficients.length;
+	var B0 = 0;
+	var i;
+	for (i=0; i<nB0Coefficients; i++)
+	B0 += B0EarthCoefficients[i].A * Math.cos(B0EarthCoefficients[i].B + B0EarthCoefficients[i].C*rho);
 
-		//Calculate B2
-		var nB2Coefficients = this.B2EarthCoefficientsJ2000.length;
-		var B2 = 0;
-		for (i=0; i<nB2Coefficients; i++)
-		B2 += this.B2EarthCoefficientsJ2000[i].A * Math.cos(this.B2EarthCoefficientsJ2000[i].B + this.B2EarthCoefficientsJ2000[i].C*rho);
+	//Calculate B1
+	var nB1Coefficients = B1EarthCoefficientsJ2000.length;
+	var B1 = 0;
+	for (i=0; i<nB1Coefficients; i++)
+	B1 += B1EarthCoefficientsJ2000[i].A * Math.cos(B1EarthCoefficientsJ2000[i].B + B1EarthCoefficientsJ2000[i].C*rho);
 
-		//Calculate B3
-		var nB3Coefficients = this.B3EarthCoefficientsJ2000.length;
-		var B3 = 0;
-		for (i=0; i<nB3Coefficients; i++)
-		B3 += this.B3EarthCoefficientsJ2000[i].A * Math.cos(this.B3EarthCoefficientsJ2000[i].B + this.B3EarthCoefficientsJ2000[i].C*rho);
+	//Calculate B2
+	var nB2Coefficients = B2EarthCoefficientsJ2000.length;
+	var B2 = 0;
+	for (i=0; i<nB2Coefficients; i++)
+	B2 += B2EarthCoefficientsJ2000[i].A * Math.cos(B2EarthCoefficientsJ2000[i].B + B2EarthCoefficientsJ2000[i].C*rho);
 
-		//Calculate B4
-		var nB4Coefficients = this.B4EarthCoefficientsJ2000.length;
-		var B4 = 0;
-		for (i=0; i<nB4Coefficients; i++)
-		B4 += this.B4EarthCoefficientsJ2000[i].A * Math.cos(this.B4EarthCoefficientsJ2000[i].B + this.B4EarthCoefficientsJ2000[i].C*rho);
+	//Calculate B3
+	var nB3Coefficients = B3EarthCoefficientsJ2000.length;
+	var B3 = 0;
+	for (i=0; i<nB3Coefficients; i++)
+	B3 += B3EarthCoefficientsJ2000[i].A * Math.cos(B3EarthCoefficientsJ2000[i].B + B3EarthCoefficientsJ2000[i].C*rho);
 
-		var value = (B0 + B1*rho + B2*rhosquared + B3*rhocubed + B4*rho4) / 100000000;
+	//Calculate B4
+	var nB4Coefficients = B4EarthCoefficientsJ2000.length;
+	var B4 = 0;
+	for (i=0; i<nB4Coefficients; i++)
+	B4 += B4EarthCoefficientsJ2000[i].A * Math.cos(B4EarthCoefficientsJ2000[i].B + B4EarthCoefficientsJ2000[i].C*rho);
 
-		//convert results back to degrees
-		value = coordTrans.radToDeg(value);
-		return value;
-	},
+	var value = (B0 + B1*rho + B2*rhosquared + B3*rhocubed + B4*rho4) / 100000000;
 
-	radiusVector: function(JD){
-		var rho = (JD - 2451545) / 365250;
-		var rhosquared = rho*rho;
-		var rhocubed = rhosquared*rho;
-		var rho4 = rhocubed*rho;
+	//convert results back to degrees
+	value = coordTrans.radToDeg(value);
+	return value;
+}
 
-		//Calculate R0
-		var nR0Coefficients = this.R0EarthCoefficients.length;
-		var R0 = 0;
-		var i;
-		for (i=0; i<nR0Coefficients; i++)
-		R0 += this.R0EarthCoefficients[i].A * Math.cos(this.R0EarthCoefficients[i].B + this.R0EarthCoefficients[i].C*rho);
+Earth.eclipticLongitude = function(JD) {
+    var e = new Earth;
+	var L0EarthCoefficients = e.L0EarthCoefficients();
+	var L1EarthCoefficients = e.L1EarthCoefficients();
+	var L2EarthCoefficients = e.L2EarthCoefficients();
+	var L3EarthCoefficients = e.L3EarthCoefficients();
+	var L4EarthCoefficients = e.L4EarthCoefficients();
+	var L5EarthCoefficients = e.L5EarthCoefficients();
 
-		//Calculate R1
-		var nR1Coefficients = this.R1EarthCoefficients.length;
-		var R1 = 0;
-		for (i=0; i<nR1Coefficients; i++)
-		R1 += this.R1EarthCoefficients[i].A * Math.cos(this.R1EarthCoefficients[i].B + this.R1EarthCoefficients[i].C*rho);
+    var rho = (JD - 2451545) / 365250;
+    var rhosquared = rho*rho;
+    var rhocubed = rhosquared*rho;
+    var rho4 = rhocubed*rho;
+    var rho5 = rho4*rho;
 
-		//Calculate R2
-		var nR2Coefficients = this.R2EarthCoefficients.length;
-		var R2 = 0;
-		for (i=0; i<nR2Coefficients; i++)
-		R2 += this.R2EarthCoefficients[i].A * Math.cos(this.R2EarthCoefficients[i].B + this.R2EarthCoefficients[i].C*rho);
+    //Calculate L0
+    var nL0Coefficients = L0EarthCoefficients.length
+    var L0 = 0;
+    var i;
+    for (i=0; i<nL0Coefficients; i++)
+      L0 += L0EarthCoefficients[i].A * Math.cos(L0EarthCoefficients[i].B + L0EarthCoefficients[i].C*rho);
 
-		//Calculate R3
-		var nR3Coefficients = this.R3EarthCoefficients.length;
-		var R3 = 0;
-		for (i=0; i<nR3Coefficients; i++)
-		R3 += this.R3EarthCoefficients[i].A * Math.cos(this.R3EarthCoefficients[i].B + this.R3EarthCoefficients[i].C*rho);
+    //Calculate L1
+    var nL1Coefficients = L1EarthCoefficients.length
+    var L1 = 0;
+    for (i=0; i<nL1Coefficients; i++)
+      L1 += L1EarthCoefficients[i].A * Math.cos(L1EarthCoefficients[i].B + L1EarthCoefficients[i].C*rho);
 
-		//Calculate R4
-		var nR4Coefficients = this.R4EarthCoefficients.length;
-		var R4 = 0;
-		for (i=0; i<nR4Coefficients; i++)
-		R4 += this.R4EarthCoefficients[i].A * Math.cos(this.R4EarthCoefficients[i].B + this.R4EarthCoefficients[i].C*rho);
+    //Calculate L2
+    var nL2Coefficients = L2EarthCoefficients.length
+    var L2 = 0;
+    for (i=0; i<nL2Coefficients; i++)
+      L2 += L2EarthCoefficients[i].A * Math.cos(L2EarthCoefficients[i].B + L2EarthCoefficients[i].C*rho);
 
-		return (R0 + R1*rho + R2*rhosquared + R3*rhocubed + R4*rho4) / 100000000;
-	}
+    //Calculate L3
+    var nL3Coefficients = L3EarthCoefficients.length
+    var L3 = 0;
+    for (i=0; i<nL3Coefficients; i++)
+      L3 += L3EarthCoefficients[i].A * Math.cos(L3EarthCoefficients[i].B + L3EarthCoefficients[i].C*rho);
+
+    //Calculate L4
+    var nL4Coefficients = L4EarthCoefficients.length
+    var L4 = 0;
+    for (i=0; i<nL4Coefficients; i++)
+      L4 += L4EarthCoefficients[i].A * Math.cos(L4EarthCoefficients[i].B + L4EarthCoefficients[i].C*rho);
+
+    //Calculate L5
+    var nL5Coefficients = L5EarthCoefficients.length
+    var L5 = 0;
+    for (i=0; i<nL5Coefficients; i++)
+      L5 += L5EarthCoefficients[i].A * Math.cos(L5EarthCoefficients[i].B + L5EarthCoefficients[i].C*rho);
+
+    var value = (L0 + L1*rho + L2*rhosquared + L3*rhocubed + L4*rho4 + L5*rho5) / 100000000;
+
+    //convert results back to degrees
+    value = coordTrans.mapTo0To360Range(coordTrans.radToDeg(value));
+    return value;
+}
+
+Earth.eclipticLatitude = function(JD){
+	var e = new Earth;
+	var B0EarthCoefficients = e.B0EarthCoefficients();
+	var B1EarthCoefficients = e.B1EarthCoefficients();
+
+	var rho = (JD - 2451545) / 365250;
+
+	//Calculate B0
+	var nB0Coefficients = B0EarthCoefficients.length
+	var B0 = 0;
+	var i;
+	for (i=0; i<nB0Coefficients; i++)
+	B0 += B0EarthCoefficients[i].A * Math.cos(B0EarthCoefficients[i].B + B0EarthCoefficients[i].C*rho);
+
+	//Calculate B1
+	var nB1Coefficients = B1EarthCoefficients.length
+	var B1 = 0;
+	for (i=0; i<nB1Coefficients; i++)
+	B1 += B1EarthCoefficients[i].A * Math.cos(B1EarthCoefficients[i].B + B1EarthCoefficients[i].C*rho);
+
+	//Note for Earth there are no B2, B3 or B4 coefficients to calculate
+
+	var value = (B0 + B1*rho) / 100000000;
+
+	//convert results back to degrees
+	value = coordTrans.radToDeg(value);
+	return value;
+}
+
+Earth.radiusVector = function(JD){
+	var e = new Earth;
+	var R0EarthCoefficients = e.R0EarthCoefficients();
+	var R1EarthCoefficients = e.R1EarthCoefficients();
+	var R2EarthCoefficients = e.R2EarthCoefficients();
+	var R3EarthCoefficients = e.R3EarthCoefficients();
+	var R4EarthCoefficients = e.R4EarthCoefficients();
+
+	var rho = (JD - 2451545) / 365250;
+	var rhosquared = rho*rho;
+	var rhocubed = rhosquared*rho;
+	var rho4 = rhocubed*rho;
+
+	//Calculate R0
+	var nR0Coefficients = R0EarthCoefficients.length;
+	var R0 = 0;
+	var i;
+	for (i=0; i<nR0Coefficients; i++)
+	R0 += R0EarthCoefficients[i].A * Math.cos(R0EarthCoefficients[i].B + R0EarthCoefficients[i].C*rho);
+
+	//Calculate R1
+	var nR1Coefficients = R1EarthCoefficients.length;
+	var R1 = 0;
+	for (i=0; i<nR1Coefficients; i++)
+	R1 += R1EarthCoefficients[i].A * Math.cos(R1EarthCoefficients[i].B + R1EarthCoefficients[i].C*rho);
+
+	//Calculate R2
+	var nR2Coefficients = R2EarthCoefficients.length;
+	var R2 = 0;
+	for (i=0; i<nR2Coefficients; i++)
+	R2 += R2EarthCoefficients[i].A * Math.cos(R2EarthCoefficients[i].B + R2EarthCoefficients[i].C*rho);
+
+	//Calculate R3
+	var nR3Coefficients = R3EarthCoefficients.length;
+	var R3 = 0;
+	for (i=0; i<nR3Coefficients; i++)
+	R3 += R3EarthCoefficients[i].A * Math.cos(R3EarthCoefficients[i].B + R3EarthCoefficients[i].C*rho);
+
+	//Calculate R4
+	var nR4Coefficients = R4EarthCoefficients.length;
+	var R4 = 0;
+	for (i=0; i<nR4Coefficients; i++)
+	R4 += R4EarthCoefficients[i].A * Math.cos(R4EarthCoefficients[i].B + R4EarthCoefficients[i].C*rho);
+
+	return (R0 + R1*rho + R2*rhosquared + R3*rhocubed + R4*rho4) / 100000000;
 }

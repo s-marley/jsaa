@@ -1,7 +1,8 @@
-var jsaa = jsaa || {};
-
 function Pluto() {
-	this.argumentCoefficients = 
+	
+	var staticFunctions = {};
+
+	var argumentCoefficients = 
 	[	
 		{ J: 0, S: 0, P: 1 },
 		{ J: 0, S: 0, P: 2 },
@@ -49,7 +50,7 @@ function Pluto() {
 	];
 
 	
-	this.longitudeCoefficients = 
+	var longitudeCoefficients = 
 	[
 		{ A: -19799805, B: 19850055 },
 		{ A: 897144, B: -4954829 },
@@ -96,7 +97,7 @@ function Pluto() {
 		{ A: 0, B: 0 }
 	];
 
-	this.latitudeCoefficients =
+	var latitudeCoefficients =
 	[
 		{ A: -5452852, B: -14974862 },
 		{ A: 3527812, B: 1672790 },
@@ -143,7 +144,7 @@ function Pluto() {
 		{ A: 1, B: 0 },
 	];
 
-	this.radiusCoefficients =
+	var radiusCoefficients =
 	[
 		{ A: 66865439, B: 68951812 },
 		{ A: -11827535, B: -332538 },
@@ -189,72 +190,89 @@ function Pluto() {
 		{ A: 19, B: 35 },
 		{ A: 10, B: 3 },
 	];
+
+	staticFunctions.argumentCoefficients = function () { return argumentCoefficients; };
+	staticFunctions.longitudeCoefficients = function () { return longitudeCoefficients; };
+	staticFunctions.latitudeCoefficients = function () { return latitudeCoefficients; };
+	staticFunctions.radiusCoefficients = function () {	return radiusCoefficients; };
+
+	return staticFunctions;
 }
 
-Pluto.prototype = {	
+Pluto.eclipticLongitude = function(JD){
 	
-	constructor: Pluto,
+	var p = new Pluto;
+	var argumentCoefficients = p.argumentCoefficients();
+	var longitudeCoefficients = p.longitudeCoefficients();
 
-	eclipticLongitude: function(JD){
-		var T = (JD - 2451545) / 36525;
-		var J = 34.35 + 3034.9057*T;
-		var S = 50.08 + 1222.1138*T;
-		var P = 238.96 + 144.9600*T;
+	var T = (JD - 2451545) / 36525;
+	var J = 34.35 + 3034.9057*T;
+	var S = 50.08 + 1222.1138*T;
+	var P = 238.96 + 144.9600*T;
 
-		var L = 0;
-		var numCoefficients = this.argumentCoefficients.length;
-		for (var i=0; i<numCoefficients; i++)
-		{
-			var alpha = this.argumentCoefficients[i].J * J + this.argumentCoefficients[i].S * S + this.argumentCoefficients[i].P * P;
-			alpha = coordTrans.degToRad(alpha);
-			L += ((this.longitudeCoefficients[i].A * Math.sin(alpha)) + (this.longitudeCoefficients[i].B * Math.cos(alpha)));
-		}
-
-		L = L / 1000000;
-		L += (238.958116 + 144.96*T);
-		L = coordTrans.mapTo0To360Range(L);
-
-		return L;
-	},
-
-	eclipticLatitude: function(JD){
-		var T = (JD - 2451545) / 36525;
-		var J = 34.35 + 3034.9057*T;
-		var S = 50.08 + 1222.1138*T;
-		var P = 238.96 + 144.9600*T;
-
-		var B = 0;
-		var numCoefficients = this.argumentCoefficients.length;
-		for (var i=0; i<numCoefficients; i++)
-		{
-			var alpha = this.argumentCoefficients[i].J * J + this.argumentCoefficients[i].S * S + this.argumentCoefficients[i].P * P;
-			alpha = coordTrans.degToRad(alpha);
-			B += ((this.latitudeCoefficients[i].A * Math.sin(alpha)) + (this.latitudeCoefficients[i].B * Math.cos(alpha)));
-		}
-		B = B / 1000000;
-		B += -3.908239;
-
-		return B;
-	},
-
-	radiusVector: function(JD){
-		var T = (JD - 2451545) / 36525;
-		var J = 34.35 + 3034.9057*T;
-		var S = 50.08 + 1222.1138*T;
-		var P = 238.96 + 144.9600*T;
-
-		//Calculate Radius
-		var R = 0;
-		var numCoefficients = this.argumentCoefficients.length;
-		for (var i=0; i<numCoefficients; i++)
-		{
-			var alpha = this.argumentCoefficients[i].J * J + this.argumentCoefficients[i].S * S + this.argumentCoefficients[i].P * P;
-			alpha = coordTrans.degToRad(alpha);
-			R += ((this.radiusCoefficients[i].A * Math.sin(alpha)) + (this.radiusCoefficients[i].B * Math.cos(alpha)));
-		}
-		R = R / 10000000;
-		R += 40.7241346;
-
-		return R;
+	var L = 0;
+	var numCoefficients = argumentCoefficients.length;
+	for (var i=0; i<numCoefficients; i++)
+	{
+		var alpha = argumentCoefficients[i].J * J + argumentCoefficients[i].S * S + argumentCoefficients[i].P * P;
+		alpha = coordTrans.degToRad(alpha);
+		L += ((longitudeCoefficients[i].A * Math.sin(alpha)) + (longitudeCoefficients[i].B * Math.cos(alpha)));
 	}
+
+	L = L / 1000000;
+	L += (238.958116 + 144.96*T);
+	L = coordTrans.mapTo0To360Range(L);
+
+	return L;
+},
+
+Pluto.eclipticLatitude = function(JD){
+	
+	var p = new Pluto;
+	var argumentCoefficients = p.argumentCoefficients();
+	var latitudeCoefficients = p.latitudeCoefficients();
+
+	var T = (JD - 2451545) / 36525;
+	var J = 34.35 + 3034.9057*T;
+	var S = 50.08 + 1222.1138*T;
+	var P = 238.96 + 144.9600*T;
+
+	var B = 0;
+	var numCoefficients = argumentCoefficients.length;
+	for (var i=0; i<numCoefficients; i++)
+	{
+		var alpha = argumentCoefficients[i].J * J + argumentCoefficients[i].S * S + argumentCoefficients[i].P * P;
+		alpha = coordTrans.degToRad(alpha);
+		B += ((latitudeCoefficients[i].A * Math.sin(alpha)) + (latitudeCoefficients[i].B * Math.cos(alpha)));
+	}
+	B = B / 1000000;
+	B += -3.908239;
+
+	return B;
+},
+
+Pluto.radiusVector = function(JD){
+	
+	var p = new Pluto;
+	var argumentCoefficients = p.argumentCoefficients();
+	var radiusCoefficients = p.radiusCoefficients();
+
+	var T = (JD - 2451545) / 36525;
+	var J = 34.35 + 3034.9057*T;
+	var S = 50.08 + 1222.1138*T;
+	var P = 238.96 + 144.9600*T;
+
+	//Calculate Radius
+	var R = 0;
+	var numCoefficients = argumentCoefficients.length;
+	for (var i=0; i<numCoefficients; i++)
+	{
+		var alpha = argumentCoefficients[i].J * J + argumentCoefficients[i].S * S + argumentCoefficients[i].P * P;
+		alpha = coordTrans.degToRad(alpha);
+		R += ((radiusCoefficients[i].A * Math.sin(alpha)) + (radiusCoefficients[i].B * Math.cos(alpha)));
+	}
+	R = R / 10000000;
+	R += 40.7241346;
+
+	return R;
 }
