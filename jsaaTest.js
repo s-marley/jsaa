@@ -14,42 +14,6 @@ test("Ecliptical to equatorial",function(assert){
 	assert.close(result.Y,19.537268,0.000001,"When lambda = 139.686111 deg, beta = 4.875278 deg and epsilon = 23.441884 deg, dec = 19.537268 degrees");
 });
 
-///// Pluto /////
-
-test("Pluto ecliptic longitude",function(assert){
-   assert.close(Pluto.eclipticLongitude(2448908.5),232.74071,0.00001,"A JD of 2448908.5 returned 232.74071 deg");
-});
-
-test("Pluto ecliptic latitude",function(assert){
-   assert.close(Pluto.eclipticLatitude(2448908.5),14.58782,0.00001,"A JD of 2448908.5 returned 14.58782 deg");
-});
-
-test("Pluto radius vector",function(assert){
-   assert.close(Pluto.radiusVector(2448908.5),29.711111,0.000001,"A JD of 2448908.5 returned 29.711111 AU");
-});
-
-///// Earth /////
-
-test("Earth ecliptic longitude J2000",function(assert){
-	assert.close(Earth.eclipticLongitudeJ2000(2448908.5),20.008209,0.000001,"A JD of 2448908.5 returned 20.008209 deg")
-});
-
-test("Earth ecliptic latitude J2000",function(assert){
-	assert.close(Earth.eclipticLatitudeJ2000(2448908.5),0.000221,0.000001,"A JD of 2448908.5 returned 0.000221 deg")
-});
-
-test("Earth ecliptic longitude",function(assert){
-	assert.close(Earth.eclipticLongitude(2448908.5),19.907372,0.000001,"A JD of 244908.5 returned 19.907372 deg")
-});
-
-test("Earth ecliptic latitude",function(assert){
-	assert.close(Earth.eclipticLatitude(2448908.5),-0.000179,0.000001,"A JD of 244908.5 returned -0.000179 deg")
-});
-
-test("Earth radius vector",function(assert){
-	assert.close(Earth.radiusVector(2448908.5),0.99760775,0.00000001,"A JD of 2448908.5 returned 0.99760775 AU")
-});
-
 ///// Sun /////
 
 test("Sun geometric ecliptic longitude J2000",function(assert){
@@ -75,6 +39,69 @@ test("Sun ecliptic rectangular coordinates J2000",function(assert){
 	assert.close(result.Z,-0.00000385,0.00000001,"A JD of 2448908.5 returned Coord.X of 0.00000385")
 });
 
+///// Mercury /////
+
+test("Mercury ecliptic longitude",function(assert){
+	assert.close(Mercury.eclipticLongitude(2448976.5),202.256416,0.000001,"A JD of 2488976.5 returned 181.882168 deg")
+});
+
+test("Mercury ecliptic latitude",function(assert){
+	assert.close(Mercury.eclipticLatitude(2448976.5),3.082071,0.000001,"A JD of 2488976.5 returned 1.290464 deg")
+});
+
+test("Mercury radius vector",function(assert){
+	assert.close(Mercury.radiusVector(2448976.5),0.419941,0.000001,"A JD of 2488976.5 returned 5.44642320 AU")
+});
+
+///// Venus /////
+
+test("Venus ecliptic longitude",function(assert){
+	assert.close(Venus.eclipticLongitude(2448976.5),26.11428,0.00001,"A JD of 2488976.5 returned 26.11428")
+});
+
+test("Venus ecliptic latitude",function(assert){
+	assert.close(Venus.eclipticLatitude(2448976.5),-2.62070,0.00001,"A JD of 2488976.5 returned -2.62070")
+});
+
+test("Venus radius vector",function(assert){
+	assert.close(Venus.radiusVector(2448976.5),0.724603,0.00001,"A JD of 2488976.5 returned 0.724603 AU")
+});
+
+///// Earth /////
+
+test("Earth ecliptic longitude J2000",function(assert){
+	assert.close(Earth.eclipticLongitudeJ2000(2448908.5),20.008209,0.000001,"A JD of 2448908.5 returned 20.008209 deg")
+});
+
+test("Earth ecliptic latitude J2000",function(assert){
+	assert.close(Earth.eclipticLatitudeJ2000(2448908.5),0.000221,0.000001,"A JD of 2448908.5 returned 0.000221 deg")
+});
+
+test("Earth ecliptic longitude",function(assert){
+	assert.close(Earth.eclipticLongitude(2448908.5),19.907372,0.000001,"A JD of 244908.5 returned 19.907372 deg")
+});
+
+test("Earth ecliptic latitude",function(assert){
+	assert.close(Earth.eclipticLatitude(2448908.5),-0.000179,0.000001,"A JD of 244908.5 returned -0.000179 deg")
+});
+
+test("Earth radius vector",function(assert){
+	assert.close(Earth.radiusVector(2448908.5),0.99760775,0.00000001,"A JD of 2448908.5 returned 0.99760775 AU")
+});
+
+///// Mars /////
+
+test("Mars ecliptic longitude",function(assert){
+	assert.close(Mars.eclipticLongitude(2448976.5),98.705791,0.000001,"A JD of 2488976.5 returned 26.11428")
+});
+
+test("Mars ecliptic latitude",function(assert){
+	assert.close(Mars.eclipticLatitude(2448976.5),1.400774,0.000001,"A JD of 2488976.5 returned -2.62070")
+});
+
+test("Mars radius vector",function(assert){
+	assert.close(Mars.radiusVector(2448976.5),1.590877,0.000001,"A JD of 2488976.5 returned 0.724603 AU")
+});
 
 ///// Jupiter /////
 
@@ -90,35 +117,60 @@ test("Jupiter radius vector",function(assert){
 	assert.close(Jupiter.radiusVector(2448972.5),5.44642320,0.0001,"A JD of 2448972.5 returned 5.44642320 AU")
 });
 
-///// Mercury /////
+///// Saturn /////
 
-// Results are currently unknown, need some other calculation to compare it to!
-/*
-test("Mercury Ecliptic Longitude",function(assert){
-	assert.close(Mercury.eclipticLongitude(2488976.5),26.11428,0.0001,"A JD of 2488976.5 returned 181.882168deg to the nearest 0.0001deg")
+test("Saturn ecliptic longitude",function(assert){
+	assert.close(Saturn.eclipticLongitude(2448976.5),319.318257,0.000001,"A JD of 2488976.5 returned 26.11428")
 });
 
-test("Mercury Ecliptic Latitude",function(assert){
-	assert.close(Mercury.eclipticLatitude(2488976.5),-2.62070,0.0001,"A JD of 2488976.5 returned 1.290464deg to the nearest 0.0001deg")
+test("Saturn ecliptic latitude",function(assert){
+	assert.close(Saturn.eclipticLatitude(2448976.5),-1.080161,0.000001,"A JD of 2488976.5 returned -2.62070")
 });
 
-test("Mercury Radius Vector",function(assert){
-	assert.close(Mercury.radiusVector(2488976.5),0.724603,0.0001,"A JD of 2488976.5 returned 5.44642320AU to the nearest 0.0001AU")
-});
-*/
-
-///// Venus /////
-
-test("Venus ecliptic longitude",function(assert){
-	assert.close(Venus.eclipticLongitude(2448976.5),26.11428,0.00001,"A JD of 2488976.5 returned 26.11428")
+test("Saturn radius vector",function(assert){
+	assert.close(Saturn.radiusVector(2448976.5),9.866964,0.000001,"A JD of 2488976.5 returned 0.724603 AU")
 });
 
-test("Venus ecliptic latitude",function(assert){
-	assert.close(Venus.eclipticLatitude(2448976.5),-2.62070,0.00001,"A JD of 2488976.5 returned -2.62070")
+///// Uranus /////
+
+test("Uranus ecliptic longitude",function(assert){
+	assert.close(Uranus.eclipticLongitude(2448976.5),287.890892,0.000001,"A JD of 2488976.5 returned 26.11428")
 });
 
-test("Venus radius vector",function(assert){
-	assert.close(Venus.radiusVector(2448976.5),0.724603,0.00001,"A JD of 2488976.5 returned 0.724603 AU")
+test("Uranus ecliptic latitude",function(assert){
+	assert.close(Uranus.eclipticLatitude(2448976.5),-0.430642,0.000001,"A JD of 2488976.5 returned -2.62070")
+});
+
+test("Uranus radius vector",function(assert){
+	assert.close(Uranus.radiusVector(2448976.5),19.570256,0.000001,"A JD of 2488976.5 returned 0.724603 AU")
+});
+
+///// Neptune /////
+
+test("Neptune ecliptic longitude",function(assert){
+	assert.close(Neptune.eclipticLongitude(2448976.5),288.538787,0.000001,"A JD of 2488976.5 returned 26.11428")
+});
+
+test("Neptune ecliptic latitude",function(assert){
+	assert.close(Neptune.eclipticLatitude(2448976.5),0.696725,0.000001,"A JD of 2488976.5 returned -2.62070")
+});
+
+test("Neptune radius vector",function(assert){
+	assert.close(Neptune.radiusVector(2448976.5),30.188015,0.000001,"A JD of 2488976.5 returned 0.724603 AU")
+});
+
+///// Pluto /////
+
+test("Pluto ecliptic longitude",function(assert){
+   assert.close(Pluto.eclipticLongitude(2448908.5),232.74071,0.00001,"A JD of 2448908.5 returned 232.74071 deg");
+});
+
+test("Pluto ecliptic latitude",function(assert){
+   assert.close(Pluto.eclipticLatitude(2448908.5),14.58782,0.00001,"A JD of 2448908.5 returned 14.58782 deg");
+});
+
+test("Pluto radius vector",function(assert){
+   assert.close(Pluto.radiusVector(2448908.5),29.711111,0.000001,"A JD of 2448908.5 returned 29.711111 AU");
 });
 
 ///// Elliptical /////
@@ -206,6 +258,7 @@ test("Mercury longitude of perihelion (pi)",function(assert){
 });
 
 ///// Galilean Moons /////
+
 test("Galilean moons",function(assert){
 	var result = GalileanMoons.calculate(2448972.50068);
 	assert.close(result.Satellite1.ApparentRectangularCoordinates.X,-3.4502,0.0001,"A JD of 2448972.50068 returned -3.4502 Jrad")
@@ -217,6 +270,3 @@ test("Galilean moons",function(assert){
 	assert.close(result.Satellite4.ApparentRectangularCoordinates.X,7.0720,0.0001,"A JD of 2448972.50068 returned 7.0720 Jrad")
 	assert.close(result.Satellite4.ApparentRectangularCoordinates.Y,1.0291,0.0001,"A JD of 2448972.50068 returned 1.0291 Jrad")
 });
-
-///// Test /////
-//test.testSomething();
