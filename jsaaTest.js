@@ -270,3 +270,49 @@ test("Galilean moons",function(assert){
 	assert.close(result.Satellite4.ApparentRectangularCoordinates.X,7.0720,0.0001,"A JD of 2448972.50068 returned 7.0720 Jrad")
 	assert.close(result.Satellite4.ApparentRectangularCoordinates.Y,1.0291,0.0001,"A JD of 2448972.50068 returned 1.0291 Jrad")
 });
+
+///// Moon Phases /////
+
+test("Moon phase - New Moon Feb, 1977",function(assert){
+	var k = MoonPhases.k(1977.13);
+	assert.close(MoonPhases.truePhase(Math.round(k)),2443192.65118,0.00001,"The New Moon of Feb 1977 was on JD 2443192.65118")
+});
+
+test("Moon phase - first Last Quarter in 2044",function(assert){
+	var k = MoonPhases.k(2044);
+	assert.close(MoonPhases.truePhase(Math.round(k) + 0.75),2467636.49186,0.00001,"The first, Last Quarter Moon in 2044 is on JD 2467636.49186")
+});
+
+///// Moon Illuminated Fraction /////
+
+test("Moon illuminated fraction",function(assert){
+	var jd = 2448724.5;
+	var epsilon = Nutation.trueObliquityOfEcliptic(jd);
+	var moonLambda = Moon.eclipticLongitude(jd);
+	var moonBeta = Moon.eclipticLatitude(jd);
+	var moonDelta = Moon.radiusVector(jd);
+	var moonEq = CoordTrans.ecliptic2Equatorial(moonLambda, moonBeta, epsilon);
+	var sunLambda = Sun.apparentEclipticLongitude(jd);
+	var sunBeta = Sun.apparentEclipticLatitude(jd);
+	var sunR = CoordTrans.AUToKm(Earth.radiusVector(jd));
+	var sunEq = CoordTrans.ecliptic2Equatorial(sunLambda, sunBeta, epsilon);
+	var psi = MoonIlluminatedFraction.geocentricElongation(moonEq.X, moonEq.Y, sunEq.X, sunEq.Y);
+	var phaseAngle = MoonIlluminatedFraction.phaseAngle(psi, moonDelta, sunR);
+	assert.close(phaseAngle,69.0756,0.0001,"A JD of 2448724.5 returned a phase angle of 69.0756 deg")
+	assert.close(MoonIlluminatedFraction.illuminatedFraction(phaseAngle),0.6785,0.0001,"A JD of 2448724.5 returned illuminated fraction of 0.6775")
+	assert.close(MoonIlluminatedFraction.positionAngle(sunEq.X, sunEq.Y, moonEq.X, moonEq.Y),285.0,0.1,"A JD of 2448724.5 returned a position angle of 285.0 deg")
+});
+
+///// Moon /////
+
+test("Moon ecliptic longitude",function(assert){
+	assert.close(Moon.eclipticLongitude(2448724.5),133.167265,0.000001,"A JD of 2488724.5 returned 133.167265 deg")
+});
+
+test("Moon ecliptic latitude",function(assert){
+	assert.close(Moon.eclipticLatitude(2448724.5),-3.229126,0.000001,"A JD of 2488724.5 returned -3.229126 deg")
+});
+
+test("Moon radius vector",function(assert){
+	assert.close(Moon.radiusVector(2448724.5),368409.7,0.1,"A JD of 2488724.5 returned 368409 km")
+});

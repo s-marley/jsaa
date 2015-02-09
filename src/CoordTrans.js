@@ -55,3 +55,7 @@ CoordTrans.DMSToDegrees = function(Degrees, Minutes, Seconds, bPositive)
     return -Degrees - Minutes/60 - Seconds/3600;
 }
 
+CoordTrans.AUToKm = function(AU)
+{
+  return AU * 149597871;
+}

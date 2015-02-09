@@ -606,3 +606,18 @@ Earth.radiusVector = function(JD){
 
 	return (R0 + R1*rho + R2*rhosquared + R3*rhocubed + R4*rho4) / 100000000;
 }
+
+Earth.sunMeanAnomaly = function(JD)
+{
+	var T = (JD - 2451545) / 36525;
+	var Tsquared = T*T;
+	var Tcubed = Tsquared*T;
+	return CoordTrans.mapTo0To360Range(357.5291092 + 35999.0502909*T - 0.0001536*Tsquared + Tcubed/24490000);
+}
+
+Earth.eccentricity = function(JD)
+{
+	var T = (JD - 2451545) / 36525;
+	var Tsquared = T*T;
+	return 1 - 0.002516*T - 0.0000074*Tsquared;
+}
