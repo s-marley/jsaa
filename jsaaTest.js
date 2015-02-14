@@ -332,3 +332,15 @@ test("Magnitude of Venus",function(assert){
 test("Magnitude of Saturn",function(assert){
 	assert.close(IlluminatedFraction.saturnMagnitudeMuller(9.867882, 10.464606, 4.198, 16.442),0.9,0.1,"On 1992 Dec 16th 0h TD Saturn has a magnitude of +0.9")
 });
+
+///// Saturn's Rings /////
+test("Saturn's rings",function(assert){
+	var details = SaturnRings.calculate(2448972.50068); 
+	console.log(details);
+	assert.close(details.B,16.442,0.001,"A JD of 2448972.50068 gives B of 16.442 deg")
+	assert.close(details.Bdash,14.679,0.001,"A JD of 2448972.50068 gives a B' of 14.679 deg")
+	assert.close(details.DeltaU,4.198,0.001,"A JD of 2448972.50068 gives a DeltaU of 4.198 deg")
+	assert.close(details.P,6.741,0.001,"A JD of 2448972.50068 gives a P of 6.741 deg")
+	assert.close(details.a,35.87,0.01,"A JD of 2448972.50068 gives a of of 35.87 arc sec")
+	assert.close(details.b,10.15,0.01,"A JD of 2448972.50068 gives b of angle of 10.15 arc sec")
+});
