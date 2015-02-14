@@ -316,3 +316,19 @@ test("Moon ecliptic latitude",function(assert){
 test("Moon radius vector",function(assert){
 	assert.close(Moon.radiusVector(2448724.5),368409.7,0.1,"A JD of 2488724.5 returned 368409 km")
 });
+
+///// Illuminated Fraction /////
+
+test("Venus illuminated fraction",function(assert){
+	var phaseAngle = IlluminatedFraction.phaseAngleA(0.724604, 0.983824, 0.910947);
+	assert.close(IlluminatedFraction.illuminatedFractionA(phaseAngle),0.647,0.001,"On 1992 Dec 20th 0h TD the phase angle of Venus is 0.647")
+});
+
+test("Magnitude of Venus",function(assert){
+	var phaseAngle = IlluminatedFraction.phaseAngleA(0.724604, 0.983824, 0.910947);
+	assert.close(IlluminatedFraction.venusMagnitudeMuller(0.724604, 0.910947, phaseAngle),-3.8,0.1,"On 1992 Dec 20th 0h TD Venus has a magnitude of -3.8")
+});
+
+test("Magnitude of Saturn",function(assert){
+	assert.close(IlluminatedFraction.saturnMagnitudeMuller(9.867882, 10.464606, 4.198, 16.442),0.9,0.1,"On 1992 Dec 16th 0h TD Saturn has a magnitude of +0.9")
+});

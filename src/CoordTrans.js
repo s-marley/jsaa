@@ -59,3 +59,8 @@ CoordTrans.AUToKm = function(AU)
 {
   return AU * 149597871;
 }
+
+CoordTrans.log10 = function(num)
+{
+  return Math.log(num) / Math.LN10;
+}

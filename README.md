@@ -8,6 +8,7 @@ This is my attempt to reproduce a number of the astronomical algorithms written 
 * The positions of the Galilean moons
 * Aberration, nutation and FK5 conversions
 * The position, phase and illuminated fraction of the Moon
+* The illuminated fraction and magnitude of all major planets and Pluto
 
 #### How to use these files
 The files are currently seperate so you will need to decide which to include for a specific calculation. At some point I am planning on combining and minifying these files into a useable library. For now, see [jsaaTest.js](https://github.com/s-marley/jsaa/blob/master/jsaaTest.js) and [jsaaTest.html](https://github.com/s-marley/jsaa/blob/master/jsaaTest.html) for some implementations.
